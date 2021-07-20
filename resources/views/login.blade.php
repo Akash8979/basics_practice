@@ -23,6 +23,12 @@
 
     </div>
     <div style="margin: 150px 300px;background-color:whitesmoke;box-shadow: 16px 20px 35px -19px rgba(9,9,16,.2),-19px 20px 34px -19px rgba(9,9,16,.2),19px -20px 34px -19px rgba(9,9,16,.2)!important;">
+        @if(session()->has('LoginFail'))
+        <p class="text-danger p-1"><strong>* </strong>{{session()->pull('LoginFail')}}</p>
+
+        @elseif(session()->has('NotLogin'))
+        <p class="text-danger p-1"><strong>* </strong>{{session()->pull('NotLogin')}}</p>
+        @endif
 
         <div style="margin-left:250px; padding: 10px;">
             <h3>

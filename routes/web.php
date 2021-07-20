@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DateController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 /*
@@ -18,11 +18,13 @@ use App\Http\Controllers\RegisterController;
 
 Route::post('/updatePage', [RegisterController::class, 'updatePage'])->name('post.update');
 Route::post('/editPage', [RegisterController::class, 'editPage'])->name('post.edit');
-Route::get('/detailPage', [RegisterController::class, 'detailPage']);
+Route::get('/detailPage', [RegisterController::class, 'detailPage'])->middleware('userAuth');
 Route::get('/restore', [RegisterController::class, 'restore']);
 Route::get('/delete', [RegisterController::class, 'destroy']);
 Route::get('/forceDelete', [RegisterController::class, 'forceDelete']);
 Route::get('/register', [RegisterController::class, 'RegisterForm']);
-Route::post('/', [RegisterController::class, 'RegisterCustomer'])->name('post.register');
-Route::get('/login', [DepartmentController::class, 'create']);
-Route::post('/login', [RegisterController::class, 'store'])->name('post.login');
+Route::post('/register', [RegisterController::class, 'RegisterCustomer'])->name('post.register');
+Route::get('/logout', [LoginController::class, 'Logout']);
+Route::get('/login', [LoginController::class, 'LoginForm']);
+Route::post('/login', [LoginController::class, 'Authenticate'])->name('post.login');
+Route::get('/date', [DateController::class, 'index']);

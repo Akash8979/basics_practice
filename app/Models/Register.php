@@ -15,17 +15,17 @@ class Register extends Model
     protected $fillable = ['fname', 'lname', 'email', 'gender', 'department', 'password'];
 
     //====local scope===
-    public function scopeUser($query)
-    {
-        return $query->where('department', '=', 2);
-    }
+    // public function scopeUser($query)
+    // {
+    //     return $query->where('department', '=', 2);
+    // }
 
     //=====================global scope
     /**
-    //  * The "booted" method of the model.
-    //  *
-    //  * @return void
-    //  */
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
     // protected static function booted()
     // {
     //     static::addGlobalScope(new UserScope);

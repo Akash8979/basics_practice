@@ -78,7 +78,16 @@ class RegisterController extends Controller
         // $user = Register::user()->get();
         // $trash = Register::user()->onlyTrashed()->get();
         //===Norma;==========================
-        $user = Register::user()->get();
+
+        // if (session()->has('UserEmail')) {
+        //     $user = Register::get();
+        //     $trash = Register::onlyTrashed()->get();
+        //     return view('detailPage', ['user' => $user], ['trash' => $trash]);
+        // } else {
+        //     session(['NotLogin' => 'Please Login to enjoy Detail Page']);
+        //     return redirect('login');
+        // }
+        $user = Register::get();
         $trash = Register::onlyTrashed()->get();
         return view('detailPage', ['user' => $user], ['trash' => $trash]);
     }
@@ -108,28 +117,5 @@ class RegisterController extends Controller
 
         return response()->json(['users' => $users, 'trash' => $trash]);
         //return redirect('detailPage');
-    }
-    /**
-     * Handle an authentication attempt.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function authenticate(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('dashboard');
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
     }
 }

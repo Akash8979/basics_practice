@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
     <div class="contaner-fluid row" style="background-color:whitesmoke;box-shadow: 16px 20px 35px -19px rgba(9,9,16,.2),-19px 20px 34px -19px rgba(9,9,16,.2),19px -20px 34px -19px rgba(9,9,16,.2)!important;">
         <div class="col-sm-2">
             <h3 class="p-3"><a href="register">Add User</a> </h3>
@@ -26,7 +27,7 @@
             <h3 class=" p-3"><a href="login">Login</a> </h3>
         </div>
         <div class="col-sm-1">
-            <h3 class=" p-3"><a href="login">Logout</a> </h3>
+            <h3 class=" p-3"><a href="logout">Logout</a> </h3>
         </div>
 
 
