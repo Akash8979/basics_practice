@@ -22,7 +22,7 @@ class LoginController extends Controller
     }
     public function Authenticate(Request $request)
     {
-        $user = Register::where('email',  $request->email)->where('password', $request->Password)->count();
+        $user = Register::where('email',  $request->email)->where('Password', $request->password)->count();
         // dd($user);
         if ($user > 0) {
             session(['UserEmail' => $request->email]);

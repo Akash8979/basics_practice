@@ -18,9 +18,9 @@ use App\Http\Controllers\RegisterController;
 
 Route::post('/updatePage', [RegisterController::class, 'updatePage'])->name('post.update');
 Route::post('/editPage', [RegisterController::class, 'editPage'])->name('post.edit');
-Route::get('/detailPage', [RegisterController::class, 'detailPage'])->middleware('userAuth');
-Route::get('/restore', [RegisterController::class, 'restore']);
-Route::get('/delete', [RegisterController::class, 'destroy']);
+Route::get('/detailPage', [RegisterController::class, 'detailPage'])->middleware('userAuth', 'log');
+Route::get('/restore', [RegisterController::class, 'restore'])->middleware('log');
+Route::get('/delete', [RegisterController::class, 'destroy'])->middleware('log');
 Route::get('/forceDelete', [RegisterController::class, 'forceDelete']);
 Route::get('/register', [RegisterController::class, 'RegisterForm']);
 Route::post('/register', [RegisterController::class, 'RegisterCustomer'])->name('post.register');
