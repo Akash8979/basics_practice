@@ -16,7 +16,7 @@ class userAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session()->has('user_email')) {
+        if (session()->has('UserEmail')) {
             return $next($request);
         } else {
             return redirect('login');
